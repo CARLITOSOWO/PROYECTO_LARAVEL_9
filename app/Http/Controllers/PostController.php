@@ -24,11 +24,15 @@ class PostController extends Controller
 
     public function store (Request $request )
     {
-       $post = $request->user()->posts()->create([
+        //dd($request);
+
+        $post = $request->user()->posts()->create([
         'title' => $title = $request->title,
         'slug' => Str::slug($title),
         'body' => $request->body,
        ]);
+       
+       //dd($post , $request);
 
        return redirect()->route('posts.edit', $post);
     }
@@ -36,6 +40,11 @@ class PostController extends Controller
     public function edit(Post $post)
     {
        return view('posts.edit', ['post' => $post]);
+    }
+
+    public function update(Request $request)
+    {
+        
     }
 
     public function destroy(Post $post)

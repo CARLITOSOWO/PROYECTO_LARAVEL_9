@@ -1,20 +1,31 @@
-@extends('template')
-    @section('content')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            LISTADO
+        </h2>
+    </x-slot>
 
-<h1>LISTADO</h1>
-
-@foreach ($posts as $post)
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+               
+                @foreach ($posts as $post)
     <p>
-            <strong>{{ $post->id }}</strong>
+        <strong>{{ $post->id }}</strong>
             <a href="{{ route('post', $post->slug) }}">
                 {{ $post->title }}
             </a>
-            <br>
+        <br>
             <span>{{ $post->user->name }}</span>
-            </p>
+    </p>
 
     @endforeach
 
     {{  $posts->links()   }}
 
-@endsection
+            </div>
+            </div>
+        </div>
+    </div>
+</x-app-layout>
