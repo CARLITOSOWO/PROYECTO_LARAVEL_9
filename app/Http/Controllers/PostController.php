@@ -10,41 +10,71 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index() //LISTADO 
     {
         return view('posts.index', [
             'posts' => Post::latest()->paginate()
             ]);
     }
 
-    public function create (Post $post)
+    public function create (Post $post)//FORMULARIO DE CREAR 
     {
        return view('posts.create', ['post' => $post]);
     }
 
-    public function store (Request $request )
-    {
-        //dd($request);
 
+
+
+
+    public function store (Request $request )//CREAR FINALMENTE 
+    {
+
+        $request->validate([
+            'title' => 'required',
+            'slug' => 'required |unique:posts,slug',
+            'body' => 'required',
+        ]);
+
+        //dd($request);
         $post = $request->user()->posts()->create([
-        'title' => $title = $request->title,
-        'slug' => Str::slug($title),
+        'title' => $request->title,
+        'slug' => $request->slug,
         'body' => $request->body,
        ]);
        
        //dd($post , $request);
-
        return redirect()->route('posts.edit', $post);
     }
 
-    public function edit(Post $post)
+
+
+
+
+
+
+
+    public function edit(Post $post)//FORMULARIO DE EDITAR
     {
        return view('posts.edit', ['post' => $post]);
     }
 
-    public function update(Request $request)
+    public function update (Request $request, Post $post)//EDITAR FINALMENTE
     {
-        
+
+        $request->validate([
+            'title' => 'required',
+            'slug' => 'required |unique:posts,slug' . $post->id,
+            'body' => 'required',
+        ]);
+
+        $post->update ([
+        'title' => $request->title,
+        'slug' => $request->slug,
+        'body' => $request->body,
+       ]);
+       
+
+       return redirect()->route('posts.edit', $post);
     }
 
     public function destroy(Post $post)
