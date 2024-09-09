@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -64,3 +65,18 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+=======
+Blog de CDLA LARAVEL 9 🐱‍👤🐱‍👤
+**Un blog increible con las funciones de un CRUD que aprendi en el curso de Platzi ** En este blog aprendi la increible ayuda de LARAVEL y lo necesario para poder iniciar y ampliar mis conocimientos en el desarollo web y un contralador de Versiones.
+E aprendido muchas cosas desde:
+*RUTAS 
+*VISTAS 
+*CONTROLADORES 
+*PHP ARTISAN 
+Y MUCHO MAS 
+
+Continuo estudiando para asi poder algun dia poder saludar a los mejores Profesores Italo Morales F y  Freddy Vega.
+
+NOTA FINAL SIGO APRENDIENDO Y MEJORANDO
+🐱‍🚀🐱‍👓🐱‍🐉🐱‍💻🐱‍🏍
+>>>>>>> 9594ce4b1aa9e08eaf609b0d5ec6dd457dd46dd5
