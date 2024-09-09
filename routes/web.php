@@ -21,11 +21,9 @@ Route::controller(PageController::class)->group(function (){
 //    return view('welcome');
 //});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::redirect('dashboard','posts')->name('dashboard');
 
-Route::resource('posts',PostController::class)->except(['show'])->middleware(['auth', 'verified']);
+Route::resource('posts',PostController::class)->middleware(['auth'])->except(['show'])->middleware(['auth', 'verified']);
 
 
 Route::middleware('auth')->group(function () {
